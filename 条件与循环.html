@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<!--控制切换一个元素的显示
+			seen:true 内容显示，
+				 false 不显示
+		-->
+		<div id='app'>
+			<p v-if='seen'>现在你看到我了</p>
+		</div>
+		<!--for 循环-->
+		<div id='app2'>
+			<ol>
+				<li v-for="todo in todos">{{todo.name}}</li>
+			</ol>
+		</div>
+		
+	</body>
+</html>
+<script>
+	var app=new Vue({
+		el:'#app',
+		data:{
+			seen:true
+		}
+	});
+	
+	var app2=new Vue({
+		el:'#app2',
+		data:{
+			todos:[{name:'aa'},{name:'bb'},{name:'cc'}]
+		}
+	});
+	
+	
+</script>

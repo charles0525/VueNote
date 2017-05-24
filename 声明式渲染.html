@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+
+	</head>
+	<body>
+		<!--文本插值方式-->
+		<div id="app">			
+			{{msg}}
+		</div>
+		<!--通过指令绑定Dom-->
+		<div id="app2">
+			<span v-bind:title="msg">鼠标悬停几秒查看这里的提示信息</span>
+		</div>
+	</body>
+</html>
+<script>
+	var app=new Vue({
+		el:'#app',
+		data:{
+			msg:'hello vue...'
+		}
+	});
+	
+	var app2=new Vue({
+		el:'#app2',
+		data:{
+			msg:'hello vue2'
+		}
+	});
+</script>

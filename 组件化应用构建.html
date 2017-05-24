@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<!--
+			在Vue里，一个组件本质上是一个拥有预定义选项的一个vue实例，在Vue里注册很简单：			
+		-->
+		<div id='app'>
+			<ol>
+				<todo-item v-for="item in todoList" v-bind:todo="item"></todo-item>
+			</ol>
+		</div>
+	</body>
+</html>
+<script>
+	//定义一个组件名为 todo-item
+	Vue.component('todo-item',{
+		props:['todo'],
+		template:'<li>{{todo.text}}</li>'
+	});
+	var app=new Vue({
+		el:'#app',
+		data:{
+			todoList:[{text:'aaa'},{text:'bbb'}]
+		}
+	});
+</script>
