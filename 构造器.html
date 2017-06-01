@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<!--
+        	作者：charles0525@gmail.com
+        	时间：2017-06-01
+        	描述：每个Vue.js应用都是通过构造函数Vue创建一个Vue的根实例启动的：
+        	var vm=new Vue({});
+        	虽然没完全遵循MVVM模式，Vue的设计无疑感受到了它的启发，因此在文档中经常会使用vm（View Model的简称）表示Vue实例
+        	在实例化Vue时，需要传入一个选项对象，它可以包含数据、模板、挂载元素、方法、生命周期钩子等选项。
+        	可以扩展Vue构造器，从而用预定义选项创建可复用的组件构造器：
+        	var myComponent=Vue.extend({});
+        	尽管可以命令式的创建扩展实例，不过在多数情况下建议将组件构造器注册为一个自定义元素，然后声明式的用在模板中。
+        -->
+        <div id="app">
+        	{{name}}
+        </div>
+	</body>
+</html>
+<script>
+	var vm=new Vue({
+		el:'#app',
+		data:{
+			name:'测试'
+		}
+	});
+</script>

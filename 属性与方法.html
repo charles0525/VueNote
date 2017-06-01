@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<!--
+        	作者：charles0525@gmail.com
+        	时间：2017-06-01
+        	描述：每个Vue实例都会代理其data对象里所有的属性：
+        	注意：只有这些被代理的属性是响应的，如果在实例创建之后添加的属性到实例上，它不会出发视图更新
+        	注意：不要再实例属性或回调函数中使用箭头函数（如vm.$switch('a',newval=>this.myMethod())）,因为箭头函数绑定父上下文，所以this不会像预想的一样是Vue实例，而是this.myMethod未被定义。
+        -->
+        <div id='app'>
+        	<input type="text" v-model="name" />
+        </div>
+	</body>
+</html>
+<script>
+	var data={name:'张三'};
+	var vm=new Vue({
+		el:'#app',
+		data:data
+	});
+	//每个Vue实例都会代理其data对象里的所有属性,反之亦然
+	console.log(data.name===vm.name);
+	//设置属性也会影响到原始数据
+	vm.name='李四';
+	console.log(data.name);
+	//除了data属性，Vue实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀$，以便与代理的data属性区分
+	console.log('vm.$data===data:'+(vm.$data===data))
+	console.log('vm.$el===document.getElementById("app"):'+(vm.$el===document.getElementById("app")));
+	//实例方法
+	vm.$switch('a',function(newVal,oldVal){
+		//这个回调再vm.a改变后回调
+	});
+</script>
