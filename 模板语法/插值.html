@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<!--
+        	作者：charles0525@gmail.com
+        	时间：2017-06-06
+        	描述：数据绑定最常见的形式就是使用“Mustache”语法（双大括号）的文本插值。
+        	Mustache标签将会被替代为对应对象上msg属性的值，无论何时，绑定的数据对象上msg属性发生了改变，插值处的内容都会更新。
+        -->
+		<div id='app'>
+			<span>{{name}}</span><br>
+			<!--
+            	通过使用v-once指令，你也能执行一次性的插值，当数据改变时，插值处的内容不会更新，但请留心这将会影响到该节点上所有的数据。
+            -->
+            <span v-once>This will never change.{{name}}</span>
+		</div>
+	</body>
+</html>
+<script>
+	var vm=new Vue({
+		el:'#app',
+		data:{
+			name:'张三哪'
+		}
+	});
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<!--
+        	作者：charles0525@gmail.com
+        	时间：2017-06-06
+        	描述：Mustache不能再HTML属性中使用，应使用v-bind指令：
+        -->
+        <div id="app">
+        	<span v-bind:id="domId">{{name}}</span>
+        	<!--
+        		这对bool值的属性也有效，如果条件被求值为false的话该属性会被移除：
+        	-->
+        	<input type="button" value="启用" v-bind:disabled="btnEnabled" />
+        </div>
+	</body>
+</html>
+<script>
+	var vm=new Vue({
+		el:'#app',
+		data:{
+			domId:'test000',
+			name:'小三',
+			btnEnabled:false
+		}
+	});
+</script>
