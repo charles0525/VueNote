@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<!--
+        	作者：charles0525@gmail.com
+        	时间：2017-06-13
+        	描述：v-前缀在模板中是作为一个标示Vue特殊属性的明显标识
+        		Vue.js为两个最常用的指令提供了特别的缩写：
+        -->
+		<div id="app">
+			<!--v-bind完整语法：-->
+			<a v-bind:href='url'>链接</a>
+			<!--简写-->
+			<a :href="url">链接</a><br>
+			<!--v-on完整语法：-->
+			<a v-on:click="sayHello">hello</a>
+			<!--v-on简写语法：-->
+			<a @click="sayHello">hello</a>
+		</div>
+	</body>
+</html>
+<script>
+	var vm=new Vue({
+		el:'#app',
+		data:{
+			url:'#',
+			sayHello:function(){
+				alert('hello .');
+			}
+		}
+	});
+</script>

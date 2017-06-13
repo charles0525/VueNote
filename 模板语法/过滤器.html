@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<!--
+        	作者：charles0525@gmail.com
+        	时间：2017-06-13
+        	描述：Vue.js允许自定义过滤器，可被用作一些常见的文本格式化。
+        		过滤器可以用在两个地方：mustache插值和v-bind表达式。过滤器应该被添加在JavaScript表达式的尾部，由“管道”符指示。
+        		过滤器函数总接受表达式的值作为第一个参数。
+        		简单来说，Vue.js允许你链式调用过滤器，一个过滤器的输出可以成为下一个过滤器的输入。
+        -->
+		<div id="app">
+			{{message|capitalize|reverse('_')}}<br>
+			<!--<div v-bind:id="rawId|formatId"></div>-->
+		</div>
+	</body>
+</html>
+<script>
+	var vm=new Vue({
+		el:'#app',
+		data:{
+			message:'abcdef'
+		},
+		filters:{			
+			capitalize :function(val){
+				if(!val){
+					return '';
+				}
+				val=val.toString();
+				return val.charAt(0).toUpperCase()+val.slice(1);
+			},
+			reverse:function(val,key){
+				if(!val){
+					return '';
+				}
+				return val.split('').reverse().join(key);
+			}
+		}
+	});
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<!--
+        	作者：charles0525@gmail.com
+        	时间：2017-06-13
+        	描述：计算setter
+        	计算属性默认只有getter，不过在需要时也可以提供一个setter:
+        -->
+		<div id="app">
+			{{fullName}}
+		</div>
+	</body>
+</html>
+<script>
+	var vm=new Vue({
+		el:'#app',
+		data:{
+			firstName:'Foo',
+			lastName:'YY'
+		},
+		computed:{
+			fullName:{
+				get:function(){
+					return this.firstName+ ' '+this.lastName;
+				},
+				set:function(newVal){
+					var names=newVal.split(' ');
+					this.firstName=names[0];
+					this.lastName=names[1];
+				}
+				//现在运行vm.fullName='San Zhang'时，setter也会被调用，vm.firstName、vm.lastName也会相应的更新。
+			}
+		}
+	});
+</script>
