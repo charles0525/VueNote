@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+		<style type="text/css">
+			.active{color:#ff0000;}
+			.fontSize{font-size:26px;}
+			.underline{text-decoration:underline;}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!--
+            	作者：charles0525@gmail.com
+            	时间：2017-06-26
+            	描述：传给v-bind:class一个对象，以动态地切换class
+            		下面class active的更新将取决于数据属性isActive是否为真
+            		我们也可以在对象中传入更多属性来动态切换多个class，此外，v-bind:class指令可以与普通的class属性共存。
+            -->
+			<div v-bind:class="{active:isActive}">测试</div>
+			<div class="underline" v-bind:class="{active:isActive,'font-size':fontSize}">
+				测试2
+			</div>
+			<!--直接绑定对象-->
+			<div v-bind:class="classObj">测试3</div>
+			<!--使用计算属性-->
+			<div v-bind:class="computeObj">测试4</div>
+		</div>
+	</body>
+</html>
+<script>
+	var vm=new Vue({
+		el:'#app',
+		data:{
+			isActive:true,
+			fontSize:true,
+			underLine:false,
+			classObj:{
+				active:true,
+				underline:true
+			}
+		},
+		computed:{
+			computeObj:function(){
+				return {
+					active:this.isActive && this.fontSize,
+					underline:this.underLine
+				}
+			}
+		}
+	});
+</script>
