@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<!--
+        	作者：offline
+        	时间：2017-07-07
+        	描述：v-bind:style的对象语法十分直观，看着非常像CSS,其实它是一个javascript对象。
+        		CSS属性名可以用驼峰式(camelCase)或配合引号的短横分隔命名(如kebab-case)；
+        -->
+        <div id="app">
+        	<div v-bind:style="{color:activeColor,fontSize:fontSize+'px'}">测试1</div>
+        	<!--直接绑定到一个样式对象通常更好，让模版更清晰-->
+        	<div v-bind:style="styleObj">测试2</div>
+        	<!--数组语法，可以将多个样式用到一个元素上-->
+        	<div v-bind:style="[activeColorStyle, fontSizeStyle]">测试3</div>
+        </div>
+	</body>
+</html>
+<script>
+	var vm=new Vue({
+		el:'#app',
+		data:{
+			activeColor:'#ff0000',
+			fontSize:24,
+			activeColorStyle:{
+				color:'#888'
+			},
+			fontSizeStyle:{
+				fontSize:'16px'
+			},
+			styleObj: {
+			    color: 'red',
+			    fontSize: '13px'
+			}
+		}
+	});
+</script>

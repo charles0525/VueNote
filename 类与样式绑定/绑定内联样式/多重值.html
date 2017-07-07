@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<!--
+        	作者：offline
+        	时间：2017-07-07
+        	描述：从2.3开始，可以为style绑定中的属性提供一个包含多个值的数组，常用于提供多个带前缀的值：
+        -->
+        <div id="app">
+        	<!--
+        		这会渲染数组中最后一个被浏览器支持的值
+        	-->
+        	<div :style="{display: ['-webkit-box', '-ms-flexbox', 'flex']}"></div>
+        </div>
+	</body>
+</html>
+<script>
+	var vm=new Vue({
+		el:'#app',
+		data:{
+			
+		}
+	});
+</script>
