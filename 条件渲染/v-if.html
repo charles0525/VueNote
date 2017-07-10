@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h1 v-if="ok">Yes</h1>
+			<h1 v-else>No</h1>
+			<!--在<template>中配合v-if条件渲染一整组
+				因为v-if是一个指令，需要将它添加到一个元素上，但是如果我们想切换多个元素呢？
+				此时我们可以把一个<template>元素当作包装元素，并在上面使用v-if。最终渲染的结果不会包含<template>元素。
+			-->
+			<template v-if='Math.Random()>0.5'>
+				<h1>title</h1>
+				<p>test</p>
+			</template>
+			<template v-else>
+				<h1>title2</h1>
+				<p>test2</p>
+			</template>
+		</div>
+	</body>
+</html>
+<script>
+	var vm=new Vue({
+		el:'#app',
+		data:{
+			isOk:1
+		},
+	});
+</script>
